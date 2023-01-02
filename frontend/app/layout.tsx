@@ -8,6 +8,11 @@ export default function RootLayout(
     }) {
     return (
         <html lang="en">
+        <head>
+            <title>
+                Experiment
+            </title>
+        </head>
         <body>{children}</body>
         </html>
     );
