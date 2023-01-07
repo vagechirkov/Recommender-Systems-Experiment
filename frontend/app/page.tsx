@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import {nanoid} from 'nanoid'
+import Button from '../components/Button';
 
 export default function Home({searchParams,}: {
     searchParams: { [key: string]: string | undefined };
@@ -16,15 +17,15 @@ export default function Home({searchParams,}: {
             </h1>
 
             <Link href={`/${userId}/learning`}>
-                <button>
+                <Button>
                     Learning
-                </button>
+                </Button>
             </Link>
 
             <Link href={`/${userId}/workshop`}>
-                <button>
+                <Button>
                     Workshop
-                </button>
+                </Button>
             </Link>
 
 
