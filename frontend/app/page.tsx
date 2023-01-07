@@ -11,6 +11,10 @@ export default function Home({searchParams,}: {
     return (
 
         <>
+            <h1 className="text-3xl font-bold underline">
+                Hello world!
+            </h1>
+
             <Link href={`/${userId}/learning`}>
                 <button>
                     Learning
