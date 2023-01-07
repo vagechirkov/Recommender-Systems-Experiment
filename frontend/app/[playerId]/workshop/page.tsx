@@ -22,11 +22,9 @@ export default function Workshop({params,}: {
                     {/*    make the list of letters*/}
                     {'abcde'.split('').map((letter, index) => {
                         return (
-                            <div key={index} className="flex flex-row justify-center hover:bg-gray-200">
-                                <div className="flex flex-col justify-center">
-                                    <WorkshopItem>
-                                        {letter}
-                                    </WorkshopItem>
+                            <div key={index} className="flex flex-row justify-center">
+                                <div className="flex flex-col justify-center p-3">
+                                    <WorkshopItem itemText={letter}/>
                                 </div>
                             </div>)
                     }

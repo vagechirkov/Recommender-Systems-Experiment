@@ -1,9 +1,16 @@
 'use client';
 
-export default function WorkshopItem({children,}: {children: React.ReactNode}) {
+import {useWorkshopContext, WorkshopContextType} from "../../app/[playerId]/workshop/WorkshopContext";
+
+
+export default function WorkshopItem({itemText,}: { itemText: string }) {
+    const {item, addItemToWorkshop} = useWorkshopContext() as WorkshopContextType;
+
     return (
-        <>
-            {children}
-        </>
+
+        <button className="custom-primary-button" onClick={() => addItemToWorkshop(itemText)}>
+            {itemText}
+        </button>
+
     );
 };

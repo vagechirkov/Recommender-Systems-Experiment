@@ -1,16 +1,16 @@
 'use client';
 
-import {createContext, useCallback, useState} from 'react';
+import {createContext, useCallback, useContext, useState} from 'react';
 
 export type WorkshopItem = {
     item: string;
 }
 
-type WorkshopContextType = {
-    item: WorkshopItem["item"];
-    workshop: WorkshopItem["item"][] | [];
-    addItemToWorkshop: (selectedItem: WorkshopItem["item"]) => void;
-    removeItemFromWorkshop: (selectedItem: WorkshopItem["item"]) => void;
+export type WorkshopContextType = {
+    item: string;
+    workshop: string[] | [];
+    addItemToWorkshop: (selectedItem: string) => void;
+    removeItemFromWorkshop: (selectedItem: string) => void;
 }
 
 const WorkshopContext = createContext<WorkshopContextType | null>(null);
@@ -42,3 +42,5 @@ export default function WorkshopContextProvider({children,}: { children: React.R
         </WorkshopContext.Provider>
     );
 }
+
+export const useWorkshopContext = () => useContext(WorkshopContext);
