@@ -5,7 +5,7 @@ export default function Learning({params,}: {
 }) {
     return (
         <Link href={`${params.playerId}/workshop`}>
-            <button>
+            <button className="custom-primary-button">
                 To Workshop
             </button>
         </Link>

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Button from "../../../components/Button";
 
 export default function Workshop({params,}: {
     params: { playerId: string };
@@ -7,15 +6,15 @@ export default function Workshop({params,}: {
     return (
         <>
             <Link href={`${params.playerId}/learning`}>
-                <Button>
+                <button className="custom-primary-button">
                     To Learning
-                </Button>
+                </button>
             </Link>
 
-            <div className="grid justify-around grid-rows-3 grid-flow-col gap-4">
-                <div className="row-span-3 bg-sky-500">01</div>
-                <div className="col-span-2">02</div>
-                <div className="row-span-2 col-span-2">03</div>
+            <div className="grid grid-rows-3 grid-flow-row-dense gap-4 h-screen ">
+                <div className="row-span-2 col-span-1 bg-sky-100">01</div>
+                <div className="row-span-2 col-span-2 bg-sky-200">02</div>
+                <div className="row-span-1 col-span-3 bg-sky-300">03</div>
             </div>
         </>
     );
