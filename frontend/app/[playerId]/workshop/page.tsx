@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "../../../components/Button";
 
 export default function Workshop({params,}: {
     params: { playerId: string };
@@ -6,9 +7,9 @@ export default function Workshop({params,}: {
     return (
         <>
             <Link href={`${params.playerId}/learning`}>
-                <button>
+                <Button>
                     To Learning
-                </button>
+                </Button>
             </Link>
 
             <div className="grid justify-around grid-rows-3 grid-flow-col gap-4">
