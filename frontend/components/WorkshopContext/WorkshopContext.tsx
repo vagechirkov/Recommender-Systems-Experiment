@@ -6,6 +6,8 @@ import {createContext, useCallback, useContext, useState} from 'react';
 export type WorkshopContextType = {
     // list of items in workshop
     workshop: number[] | [];
+    // list of items in inventory
+    inventory: number[] | [];
     addItemToWorkshop: (selectedItem: number) => void;
     removeItemFromWorkshop: (selectedItem: number) => void;
 }
@@ -13,6 +15,7 @@ export type WorkshopContextType = {
 const WorkshopContext = createContext<WorkshopContextType | null>(null);
 
 export default function WorkshopContextProvider({children,}: { children: React.ReactNode }) {
+    const [inventory, setInventory] = useState<WorkshopContextType['inventory']>([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     const [workshop, setWorkshop] = useState<WorkshopContextType['workshop']>([]);
 
     const addItemToWorkshop = useCallback((selectedItem: number) => {
@@ -32,7 +35,7 @@ export default function WorkshopContextProvider({children,}: { children: React.R
 
     return (
         <WorkshopContext.Provider
-            value={{workshop, addItemToWorkshop, removeItemFromWorkshop}}>
+            value={{workshop, inventory, addItemToWorkshop, removeItemFromWorkshop}}>
             {children}
         </WorkshopContext.Provider>
     );

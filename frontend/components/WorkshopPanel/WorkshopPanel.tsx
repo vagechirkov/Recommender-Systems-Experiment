@@ -1,6 +1,6 @@
 'use client';
 
-import {useWorkshopContext, WorkshopContextType} from "../../app/[playerId]/workshop/WorkshopContext";
+import {useWorkshopContext, WorkshopContextType} from "../WorkshopContext/WorkshopContext";
 
 
 export default function WorkshopPanel() {
