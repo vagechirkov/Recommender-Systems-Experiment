@@ -1,3 +1,5 @@
+import WorkshopContextProvider from "../components/WorkshopContext";
+
 import './globals.css'
 
 export default function RootLayout(
@@ -15,7 +17,11 @@ export default function RootLayout(
                 Experiment
             </title>
         </head>
-        <body>{children}</body>
+        <body>
+        <WorkshopContextProvider>
+            {children}
+        </WorkshopContextProvider>
+        </body>
         </html>
     );
 }

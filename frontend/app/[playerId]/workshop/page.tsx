@@ -1,6 +1,6 @@
 import Link from "next/link";
 import WorkshopItem from "../../../components/WorkshopItem";
-import WorkshopPanel from "../../../components/WorkshopPanel/WorkshopPanel";
+import WorkshopPanel from "../../../components/WorkshopPanel";
 
 export default function Workshop({params,}: {
     params: { playerId: string };
@@ -20,7 +20,6 @@ export default function Workshop({params,}: {
                     Info
                 </div>
                 <div className="row-span-2 col-span-2 bg-sky-200">
-                    {/*    make the list of letters*/}
                     {'abcde'.split('').map((letter, index) => {
                             return (
                                 <div key={index} className="flex flex-row justify-center">

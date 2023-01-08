@@ -2,33 +2,28 @@
 
 import {createContext, useCallback, useContext, useState} from 'react';
 
-export type WorkshopItem = {
-    item: string;
-}
 
 export type WorkshopContextType = {
-    item: string;
-    workshop: string[] | [];
-    addItemToWorkshop: (selectedItem: string) => void;
-    removeItemFromWorkshop: (selectedItem: string) => void;
+    // list of items in workshop
+    workshop: number[] | [];
+    addItemToWorkshop: (selectedItem: number) => void;
+    removeItemFromWorkshop: (selectedItem: number) => void;
 }
 
 const WorkshopContext = createContext<WorkshopContextType | null>(null);
 
 export default function WorkshopContextProvider({children,}: { children: React.ReactNode }) {
-    const [item, setItem] = useState<WorkshopContextType['item']>("" as WorkshopContextType['item']);
-    const [workshop, setWorkshop] = useState<WorkshopContextType['workshop']>([] as WorkshopContextType['workshop']);
+    const [workshop, setWorkshop] = useState<WorkshopContextType['workshop']>([]);
 
-    const addItemToWorkshop = useCallback((selectedItem: WorkshopContextType['item']) => {
-        setItem(selectedItem);
+    const addItemToWorkshop = useCallback((selectedItem: number) => {
         // check if item string is already in workshop
         if (!workshop.some((i) => i === selectedItem)) {
             setWorkshop([...workshop, selectedItem]);
         }
 
-    }, [item, workshop]);
+    }, [workshop]);
 
-    const removeItemFromWorkshop = useCallback((selectedItem: WorkshopContextType['item']) => {
+    const removeItemFromWorkshop = useCallback((selectedItem: number) => {
         // check if item string is in workshop
         if (workshop.some((i) => i === selectedItem)) {
             setWorkshop(workshop.filter((i) => i !== selectedItem));
@@ -37,7 +32,7 @@ export default function WorkshopContextProvider({children,}: { children: React.R
 
     return (
         <WorkshopContext.Provider
-            value={{item, workshop, addItemToWorkshop, removeItemFromWorkshop}}>
+            value={{workshop, addItemToWorkshop, removeItemFromWorkshop}}>
             {children}
         </WorkshopContext.Provider>
     );
