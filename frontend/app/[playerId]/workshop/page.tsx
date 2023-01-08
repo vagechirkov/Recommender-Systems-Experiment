@@ -15,16 +15,24 @@ export default function Workshop({params,}: {
                 </Link>
             </div>
 
-            <div className="grid grid-rows-3 grid-flow-row-dense gap-2 h-screen">
-                <div className="row-span-2 col-span-1 bg-sky-100">
-                    Info
+            <div className="flex min-h-screen max-h-screen">
+                <div className="flex flex-col w-64">
+                    <div className="flex flex-1 justify-center items-center bg-red-200 ">
+                        Info
+                    </div>
                 </div>
-                <div className="row-span-2 col-span-2 bg-sky-200">
-                    <WorkshopInventory/>
+                <div className="flex flex-col p-10">
+                    <div className="flex overflow-y-auto p-5 bg-green-200">
+                        <WorkshopInventory/>
+                    </div>
+                    <div className="flex h-100 p-5 bg-fuchsia-200">
+                        <WorkshopPanel/>
+                        <button>
+                            Craft
+                        </button>
+                    </div>
                 </div>
-                <div className="row-span-1 col-span-3 bg-sky-300">
-                    <WorkshopPanel />
-                </div>
+
             </div>
         </>
     );

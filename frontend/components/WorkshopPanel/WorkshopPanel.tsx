@@ -26,8 +26,8 @@ export default function WorkshopPanel() {
                                         className="workshop-item"
                                         src={`/items/item-${itemId}.png`}
                                         alt={`${itemId}`}
-                                        width={50}
-                                        height={50}
+                                        width={100}
+                                        height={100}
                                     />
                             </div>
                         </div>)

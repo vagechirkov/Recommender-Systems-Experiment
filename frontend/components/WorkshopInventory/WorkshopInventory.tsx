@@ -13,7 +13,7 @@ const WorkshopInventory: FC = () => {
     }, [addItemToWorkshop]);
 
     return (
-        <div className="flex row-auto">
+        <div className="flex flex-wrap">
             {inventory &&
                 inventory.map((itemId, index) => {
                     return (
@@ -23,6 +23,8 @@ const WorkshopInventory: FC = () => {
                         >
                             <div className="flex flex-col justify-center p-3">
                                     <Image
+                                        key={`workshop-inventory-${index}`}
+                                        onClick={() => handleClick(itemId)}
                                         className="workshop-item"
                                         src={`/items/item-${itemId}.png`}
                                         alt={`${itemId}`}
