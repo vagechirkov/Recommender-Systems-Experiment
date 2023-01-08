@@ -6,11 +6,13 @@ import Image from "next/image";
 
 
 const WorkshopInventory: FC = () => {
-    const {inventory, addItemToWorkshop} = useWorkshopContext() as WorkshopContextType;
+    const {inventory, workshop, addItemToWorkshop} = useWorkshopContext() as WorkshopContextType;
 
     const handleClick = useCallback((selectedItem: number) => {
-        addItemToWorkshop(selectedItem);
-    }, [addItemToWorkshop]);
+        if(workshop.length < 2) {
+            addItemToWorkshop(selectedItem);
+        }
+    }, [addItemToWorkshop, workshop]);
 
     return (
         <>
@@ -24,7 +26,8 @@ const WorkshopInventory: FC = () => {
                             <Image
                                 key={`workshop-inventory-${index}`}
                                 onClick={() => handleClick(index)}
-                                className="workshop-item"
+                                // set class based on the workshop length
+                                className={`${workshop.length >= 2 ? 'workshop-item-unavailable' : 'workshop-item'}`}
                                 src={`/items/item-${index}.png`}
                                 alt={`${index}`}
                                 width={100}
@@ -35,7 +38,7 @@ const WorkshopInventory: FC = () => {
                         return (
                             <Image
                                 key={`workshop-inventory-${index}`}
-                                className="workshop-item-unavailable"
+                                className="workshop-item-empty"
                                 src={`/items/item-0.png`}
                                 alt={`${index}`}
                                 width={100}

@@ -19,21 +19,31 @@ export default function WorkshopPanel() {
                     if (workshop.length >= index) {
                         const item = workshop[index - 1];
                         return (
+                            <button className="relative" onClick={() => handleClick(item)}>
+                                <svg
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    className="absolute top-2 left-2 w-5 h-5 rounded-full bg-red-500 text-white hover:bg-red-600"
+                                >
+                                    <path  d="M6 18L18 6M6 6l12 12" />
+                                </svg>
                             <Image
                                 key={`workshop-panel-${index}`}
-                                onClick={() => handleClick(item)}
-                                className="workshop-item"
+
+                                className="workshop-item-empty"
                                 src={`/items/item-${item}.png`}
                                 alt={`${item}`}
                                 width={100}
                                 height={100}
                             />
+                            </button>
                         )
                     } else {
                         return (
                             <Image
                                 key={`workshop-panel-${index}`}
-                                className="workshop-item-unavailable"
+                                className="workshop-item-empty"
                                 src={`/items/item-0.png`}
                                 alt={`${index}`}
                                 width={100}

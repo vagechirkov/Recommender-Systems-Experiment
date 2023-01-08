@@ -11,6 +11,10 @@
 }
 
 .workshop-item-unavailable {
+    @apply m-3 border-2 border-black rounded-3xl opacity-50;
+}
+
+.workshop-item-empty {
     @apply m-3 border-2 border-black rounded-3xl;
 }
 
