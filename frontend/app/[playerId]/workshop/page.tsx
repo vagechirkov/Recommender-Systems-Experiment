@@ -1,6 +1,6 @@
 import Link from "next/link";
-import WorkshopItem from "../../../components/WorkshopItem";
 import WorkshopPanel from "../../../components/WorkshopPanel";
+import WorkshopInventory from "../../../components/WorkshopInventory";
 
 export default function Workshop({params,}: {
     params: { playerId: string };
@@ -20,15 +20,7 @@ export default function Workshop({params,}: {
                     Info
                 </div>
                 <div className="row-span-2 col-span-2 bg-sky-200">
-                    {'abcde'.split('').map((letter, index) => {
-                            return (
-                                <div key={index} className="flex flex-row justify-center">
-                                    <div className="flex flex-col justify-center p-3">
-                                        <WorkshopItem itemText={letter}/>
-                                    </div>
-                                </div>)
-                        }
-                    )}
+                    <WorkshopInventory/>
                 </div>
                 <div className="row-span-1 col-span-3 bg-sky-300">
                     <WorkshopPanel />
