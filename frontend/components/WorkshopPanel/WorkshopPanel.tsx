@@ -2,10 +2,15 @@
 
 import {useWorkshopContext, WorkshopContextType} from "../WorkshopContext/WorkshopContext";
 import Image from "next/image";
+import {useCallback} from "react";
 
 
 export default function WorkshopPanel() {
     const {workshop, removeItemFromWorkshop} = useWorkshopContext() as WorkshopContextType;
+
+    const handleClick = useCallback((selectedItem: number) => {
+        removeItemFromWorkshop(selectedItem);
+    }, [removeItemFromWorkshop]);
 
     return (
         <div className="flex row-auto">
@@ -14,7 +19,7 @@ export default function WorkshopPanel() {
                     return (
                         <div key={`workshop-panel-${index}`}
                              className="flex flex-row justify-center"
-                             onClick={() => removeItemFromWorkshop(itemId)}
+                             onClick={() => handleClick(itemId)}
                         >
                             <div className="flex flex-col justify-center p-3">
                                     <Image

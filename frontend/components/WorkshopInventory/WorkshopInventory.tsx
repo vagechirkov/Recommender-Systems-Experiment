@@ -1,12 +1,16 @@
 'use client';
 
-import {FC} from "react";
+import {FC, useCallback} from "react";
 import {useWorkshopContext, WorkshopContextType} from "../WorkshopContext/WorkshopContext";
 import Image from "next/image";
 
 
 const WorkshopInventory: FC = () => {
     const {inventory, addItemToWorkshop} = useWorkshopContext() as WorkshopContextType;
+
+    const handleClick = useCallback((selectedItem: number) => {
+        addItemToWorkshop(selectedItem);
+    }, [addItemToWorkshop]);
 
     return (
         <div className="flex row-auto">
@@ -15,7 +19,7 @@ const WorkshopInventory: FC = () => {
                     return (
                         <div key={`workshop-inventory-${index}`}
                              className="flex flex-row justify-center"
-                             onClick={() => addItemToWorkshop(itemId)}
+                             onClick={() => handleClick(itemId)}
                         >
                             <div className="flex flex-col justify-center p-3">
                                 <Image
