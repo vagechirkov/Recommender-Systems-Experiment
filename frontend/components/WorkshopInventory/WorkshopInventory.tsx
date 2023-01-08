@@ -14,41 +14,49 @@ const WorkshopInventory: FC = () => {
         }
     }, [addItemToWorkshop, workshop]);
 
-    return (
-        <>
-            {inventory &&
-                // iterate over items from 1 to 100
-                [1, ...Array(100)].map((_, index) => {
-                    // skip 0
-                    index++;
-                    if (inventory.some((i) => i === index)) {
-                        return (
-                            <Image
-                                key={`workshop-inventory-${index}`}
-                                onClick={() => handleClick(index)}
-                                // set class based on the workshop length
-                                className={`${workshop.length >= 2 ? 'workshop-item-unavailable' : 'workshop-item'}`}
-                                src={`/items/item-${index}.png`}
-                                alt={`${index}`}
-                                width={100}
-                                height={100}
-                            />
-                        )
-                    } else {
-                        return (
-                            <Image
-                                key={`workshop-inventory-${index}`}
-                                className="workshop-item-empty"
-                                src={`/items/item-0.png`}
-                                alt={`${index}`}
-                                width={100}
-                                height={100}
-                            />
-                        )
-                    }
-                })
+    const renderInventoryItems = useCallback(() => {
+        return (
+            <>
+                {inventory &&
+                    // iterate over items from 1 to 100
+                    [...Array(100)].map((_, index) => {
+                        // skip 0
+                        index++;
+                        if (inventory.some((i) => i === index)) {
+                            return (
+                                <Image
+                                    key={`workshop-inventory-${index}`}
+                                    onClick={() => handleClick(index)}
+                                    // set class based on the workshop length
+                                    className={`${workshop.length >= 2 ? 'workshop-item-unavailable' : 'workshop-item'}`}
+                                    src={`/items/item-${index}.png`}
+                                    alt={`${index}`}
+                                    width={100}
+                                    height={100}
+                                />
+                            )
+                        } else {
+                            return (
+                                <Image
+                                    key={`workshop-inventory-${index}`}
+                                    className="workshop-item-empty"
+                                    src={`/items/item-0.png`}
+                                    alt={`${index}`}
+                                    width={100}
+                                    height={100}
+                                />
+                            )
+                        }
+                    })
                 }
 
+            </>
+        )
+    }, [inventory, handleClick, workshop]);
+
+    return (
+        <>
+            {renderInventoryItems()}
         </>
     );
 }
