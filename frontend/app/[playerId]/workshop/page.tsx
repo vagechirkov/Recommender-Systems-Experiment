@@ -25,10 +25,10 @@ export default function Workshop({params,}: {
                             </div>
                         </div>
                         <div className="flex flex-col">
-                            <div className="flex flex-wrap overflow-y-auto h-[300px] md:h-[700px] box pl-10 pr-10">
+                            <div className="flex flex-wrap overflow-y-auto h-[300px] md:h-[600px] box pl-10 pr-10">
                                 <WorkshopInventory/>
                             </div>
-                            <div className="flex flex-row justify-end items-center box pr-10">
+                            <div className="flex flex-wrap flex-row justify-end items-center box pr-10">
                                 <WorkshopPanel/>
                             </div>
                         </div>

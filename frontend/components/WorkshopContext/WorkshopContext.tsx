@@ -51,7 +51,7 @@ export default function WorkshopContextProvider({children,}: { children: React.R
             // fetch combination from backend
 
             // update inventory with 50% chance of getting a new item
-            if (Math.random() < 0.5) {
+            if (Math.random() < 0.7) {
 
                 if (inventory.length === 12) {
                     setInventory([...inventory.slice(1, 5)]);
@@ -60,8 +60,6 @@ export default function WorkshopContextProvider({children,}: { children: React.R
                     const itemsNotInInventory = [...Array(12)]
                         .map((_, index) => index + 1)
                         .filter((i) => !inventory.some((j) => j === i));
-
-                    console.log(itemsNotInInventory);
 
                     const combination = itemsNotInInventory[Math.floor(Math.random() * itemsNotInInventory.length)];
 
