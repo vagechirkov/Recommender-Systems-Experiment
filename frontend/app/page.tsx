@@ -1,11 +1,17 @@
 import Link from 'next/link';
 import {nanoid} from 'nanoid'
 
-export default function Home({searchParams,}: {
-    searchParams: { [key: string]: string | undefined };
-}) {
+type HomeProps = {
+    params?: {
+        num?: string;
+    };
+    searchParams?: { [key: string]: string | undefined };
+};
+
+export default function Home({params, searchParams}: HomeProps) {
     let userId = nanoid();
-    if (searchParams.userId) userId = searchParams.userId;
+    if (searchParams?.userId)
+        userId = searchParams.userId;
 
 
     return (
