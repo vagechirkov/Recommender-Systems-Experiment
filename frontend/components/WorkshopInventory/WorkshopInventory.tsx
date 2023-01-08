@@ -22,18 +22,20 @@ const WorkshopInventory: FC = () => {
                              onClick={() => handleClick(itemId)}
                         >
                             <div className="flex flex-col justify-center p-3">
-                                <Image
-                                    src={`/items/item-${itemId}.png`}
-                                    alt={`${itemId}`}
-                                    width={50}
-                                    height={50}
-                                />
+                                    <Image
+                                        className="workshop-item"
+                                        src={`/items/item-${itemId}.png`}
+                                        alt={`${itemId}`}
+                                        width={100}
+                                        height={100}
+                                    />
                             </div>
                         </div>)
                 })
             }
         </div>
     );
-};
+}
+    ;
 
-export default WorkshopInventory;
+    export default WorkshopInventory;

@@ -23,6 +23,7 @@ export default function WorkshopPanel() {
                         >
                             <div className="flex flex-col justify-center p-3">
                                     <Image
+                                        className="workshop-item"
                                         src={`/items/item-${itemId}.png`}
                                         alt={`${itemId}`}
                                         width={50}
