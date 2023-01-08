@@ -21,3 +21,7 @@
 .craft-button {
     @apply m-3 px-6 py-2 border-2 border-black rounded-3xl transition hover:-translate-x-2 hover:-translate-y-2 hover:shadow-[8px_8px_0_0_#000];
 }
+
+.box {
+    @apply m-3 border-4 border-black;
+}
