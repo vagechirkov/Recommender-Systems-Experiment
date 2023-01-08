@@ -7,29 +7,36 @@ export default function Workshop({params,}: {
 }) {
     return (
         <>
-            <div className="p-3 text-center">
-                <Link href={`${params.playerId}/learning`}>
-                    <button className="custom-primary-button">
-                        To Learning
-                    </button>
-                </Link>
-            </div>
-
-            <div className="flex min-h-screen max-h-screen">
-                <div className="flex flex-col w-64">
-                    <div className="flex flex-1 justify-center items-center bg-red-200 ">
-                        Info
+            <div className="flex min-h-screen max-h-screen p-2">
+                <div className="flex flex-col">
+                    <div className="flex flex-col">
+                        <div className="p-3 text-center">
+                            <Link href={`${params.playerId}/learning`}>
+                                <button className="custom-primary-button">
+                                    To Learning
+                                </button>
+                            </Link>
+                        </div>
                     </div>
-                </div>
-                <div className="flex flex-col p-10">
-                    <div className="flex overflow-y-auto p-5 bg-green-200">
-                        <WorkshopInventory/>
+                    <div className="flex flex-row">
+                        <div className="flex flex-col min-w-[20%] max-w-[20%]">
+                            <div className="flex flex-1 justify-center bg-red-200">
+                                Info
+                            </div>
+                        </div>
+                        <div className="flex flex-col">
+                            <div className="flex flex-wrap overflow-y-auto h-[500px] bg-green-200">
+                                <WorkshopInventory/>
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex h-100 p-5 bg-fuchsia-200">
-                        <WorkshopPanel/>
-                        <button>
-                            Craft
-                        </button>
+                    <div className="flex flex-col">
+                        <div className="flex flex-row-reverse bg-fuchsia-200">
+                            <button className="craft-button">
+                                Craft
+                            </button>
+                            <WorkshopPanel/>
+                        </div>
                     </div>
                 </div>
 

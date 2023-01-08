@@ -13,26 +13,22 @@ export default function WorkshopPanel() {
     }, [removeItemFromWorkshop]);
 
     return (
-        <div className="flex row-auto">
+        <>
             {workshop &&
                 workshop.map((itemId, index) => {
                     return (
-                        <div key={`workshop-panel-${index}`}
-                             className="flex flex-row justify-center"
-                             onClick={() => handleClick(itemId)}
-                        >
-                            <div className="flex flex-col justify-center p-3">
-                                    <Image
-                                        className="workshop-item"
-                                        src={`/items/item-${itemId}.png`}
-                                        alt={`${itemId}`}
-                                        width={100}
-                                        height={100}
-                                    />
-                            </div>
-                        </div>)
+                        <Image
+                            key={`workshop-panel-${index}`}
+                            onClick={() => handleClick(itemId)}
+                            className="workshop-item"
+                            src={`/items/item-${itemId}.png`}
+                            alt={`${itemId}`}
+                            width={100}
+                            height={100}
+                        />
+                    )
                 })
             }
-        </div>
+        </>
     )
 }

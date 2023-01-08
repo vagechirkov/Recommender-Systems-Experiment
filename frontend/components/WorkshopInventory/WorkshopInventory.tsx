@@ -13,29 +13,40 @@ const WorkshopInventory: FC = () => {
     }, [addItemToWorkshop]);
 
     return (
-        <div className="flex flex-wrap">
+        <>
             {inventory &&
-                inventory.map((itemId, index) => {
-                    return (
-                        <div key={`workshop-inventory-${index}`}
-                             className="flex flex-row justify-center"
-                             onClick={() => handleClick(itemId)}
-                        >
-                            <div className="flex flex-col justify-center p-3">
-                                    <Image
-                                        key={`workshop-inventory-${index}`}
-                                        onClick={() => handleClick(itemId)}
-                                        className="workshop-item"
-                                        src={`/items/item-${itemId}.png`}
-                                        alt={`${itemId}`}
-                                        width={100}
-                                        height={100}
-                                    />
-                            </div>
-                        </div>)
+                // iterate over items from 1 to 100
+                [1, ...Array(100)].map((_, index) => {
+                    // skip 0
+                    index++;
+                    if (inventory.some((i) => i === index)) {
+                        return (
+                            <Image
+                                key={`workshop-inventory-${index}`}
+                                onClick={() => handleClick(index)}
+                                className="workshop-item"
+                                src={`/items/item-${index}.png`}
+                                alt={`${index}`}
+                                width={100}
+                                height={100}
+                            />
+                        )
+                    } else {
+                        return (
+                            <Image
+                                key={`workshop-inventory-${index}`}
+                                className="workshop-item-unavailable"
+                                src={`/items/item-0.png`}
+                                alt={`${index}`}
+                                width={100}
+                                height={100}
+                            />
+                        )
+                    }
                 })
-            }
-        </div>
+                }
+
+        </>
     );
 }
     ;
