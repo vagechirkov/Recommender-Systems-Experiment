@@ -1,8 +1,8 @@
 'use client';
 
-import {useWorkshopContext, WorkshopContextType} from "../WorkshopContext/WorkshopContext";
 import {FC} from "react";
-import WorkshopItem from "../WorkshopItem";
+import {useWorkshopContext, WorkshopContextType} from "../WorkshopContext/WorkshopContext";
+import Image from "next/image";
 
 
 const WorkshopInventory: FC = () => {
@@ -13,12 +13,17 @@ const WorkshopInventory: FC = () => {
             {inventory &&
                 inventory.map((itemId, index) => {
                     return (
-                        <div key={index} className="flex flex-row justify-center">
+                        <div key={`workshop-inventory-${index}`}
+                             className="flex flex-row justify-center"
+                             onClick={() => addItemToWorkshop(itemId)}
+                        >
                             <div className="flex flex-col justify-center p-3">
-                                <button className="custom-primary-button"
-                                        onClick={() => addItemToWorkshop(itemId)}>
-                                    <WorkshopItem itemId={itemId}/>
-                                </button>
+                                <Image
+                                    src={`/items/item-${itemId}.png`}
+                                    alt={`${itemId}`}
+                                    width={50}
+                                    height={50}
+                                />
                             </div>
                         </div>)
                 })
