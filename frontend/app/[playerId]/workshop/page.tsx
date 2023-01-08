@@ -25,17 +25,17 @@ export default function Workshop({params,}: {
                             </div>
                         </div>
                         <div className="flex flex-col">
-                            <div className="flex flex-wrap overflow-y-auto h-[500px] bg-green-200">
+                            <div className="flex flex-wrap overflow-y-auto h-[300px] md:h-[700px] bg-green-200">
                                 <WorkshopInventory/>
                             </div>
                         </div>
                     </div>
                     <div className="flex flex-col">
-                        <div className="flex flex-row-reverse bg-fuchsia-200">
+                        <div className="flex flex-row justify-end bg-fuchsia-200">
+                            <WorkshopPanel/>
                             <button className="craft-button">
                                 Craft
                             </button>
-                            <WorkshopPanel/>
                         </div>
                     </div>
                 </div>
